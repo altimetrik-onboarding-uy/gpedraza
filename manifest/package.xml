@@ -5,8 +5,20 @@
     <name>CustomObject</name>
   </types>
   <types>
+        <members>Contact.Points_Ammount__c</members>
+        <name>CustomField</name>
+ </types>
+  <types>
         <members>*</members>
         <name>Flow</name>
  </types>
+  <types>
+    <members>*</members>
+    <name>ApexClass</name>
+  </types>
+  <types>
+    <members>*</members>
+    <name>ApexTrigger</name>
+  </types>
     <version>48.0</version>
 </Package>

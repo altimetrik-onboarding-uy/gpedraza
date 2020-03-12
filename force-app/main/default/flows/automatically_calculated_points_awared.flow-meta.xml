@@ -237,7 +237,7 @@
 )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_2_myRule_1_A1_5646850657</name>
+        <name>formula_2_myRule_1_A1_2238282448</name>
         <dataType>Number</dataType>
         <expression>IF({!myVariable_current.Difficulty_val__c}   = 2, 1,
      IF({!myVariable_current.Difficulty_val__c}   = 3,2,
@@ -261,7 +261,7 @@
 )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_5_myRule_4_A1_6028556245</name>
+        <name>formula_5_myRule_4_A1_5122411672</name>
         <dataType>Number</dataType>
         <expression>IF({!myVariable_current.Difficulty_val__c}   = 2.00, 1.00/2,
      IF({!myVariable_current.Difficulty_val__c}   = 3.00,1.00,
@@ -279,12 +279,12 @@
                 <stringValue>IF([Task_Monitor__c].Habit_Complete__c   = true, 1.00,-1)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_8_myRule_7_A1_9776912527</name>
+        <name>formula_8_myRule_7_A1_9008572869</name>
         <dataType>Number</dataType>
         <expression>IF({!myVariable_current.Habit_Complete__c}   = true, 1.00,-1)</expression>
         <scale>18</scale>
     </formulas>
-    <interviewLabel>automatically_calculated_points_awared-3_InterviewLabel</interviewLabel>
+    <interviewLabel>automatically_calculated_points_awared-4_InterviewLabel</interviewLabel>
     <label>automatically calculated points awared</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -386,7 +386,7 @@
             </processMetadataValues>
             <field>Points_Awarded__c</field>
             <value>
-                <elementReference>formula_2_myRule_1_A1_5646850657</elementReference>
+                <elementReference>formula_2_myRule_1_A1_2238282448</elementReference>
             </value>
         </inputAssignments>
         <object>Task_Monitor__c</object>
@@ -466,7 +466,7 @@
             </processMetadataValues>
             <field>Points_Awarded__c</field>
             <value>
-                <elementReference>formula_5_myRule_4_A1_6028556245</elementReference>
+                <elementReference>formula_5_myRule_4_A1_5122411672</elementReference>
             </value>
         </inputAssignments>
         <object>Task_Monitor__c</object>
@@ -546,13 +546,13 @@
             </processMetadataValues>
             <field>Points_Awarded__c</field>
             <value>
-                <elementReference>formula_8_myRule_7_A1_9776912527</elementReference>
+                <elementReference>formula_8_myRule_7_A1_9008572869</elementReference>
             </value>
         </inputAssignments>
         <object>Task_Monitor__c</object>
     </recordUpdates>
     <startElementReference>myDecision</startElementReference>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>myVariable_current</name>
         <dataType>SObject</dataType>

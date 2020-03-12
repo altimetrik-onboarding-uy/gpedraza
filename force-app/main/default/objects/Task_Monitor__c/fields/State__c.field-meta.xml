@@ -35,16 +35,19 @@
         <valueSettings>
             <controllingFieldValue>TO-DO</controllingFieldValue>
             <controllingFieldValue>Daily</controllingFieldValue>
+            <controllingFieldValue>Habit</controllingFieldValue>
             <valueName>New</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>TO-DO</controllingFieldValue>
             <controllingFieldValue>Daily</controllingFieldValue>
+            <controllingFieldValue>Habit</controllingFieldValue>
             <valueName>In Progress</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>TO-DO</controllingFieldValue>
             <controllingFieldValue>Daily</controllingFieldValue>
+            <controllingFieldValue>Habit</controllingFieldValue>
             <valueName>Completed</valueName>
         </valueSettings>
         <valueSettings>
