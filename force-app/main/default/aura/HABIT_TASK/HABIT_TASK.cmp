@@ -1,0 +1,24 @@
+<aura:component controller="HABIT_TASKController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute  name="recordId" type="String" default=""  />
+	<aura:attribute name="fields" type="String[]" default="['Name','Difficulty__c','State__c']" />
+    <aura:attribute  name="_label" type="String" default=""  />
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
+            <lightning:icon iconName="standard:approval" size="small" onclick="{!c.addPoints}" alternativeText="Indicates approval"/>
+        </div>
+        <div class="slds-col slds-size_10-of-12">
+            <article class="slds-card">
+                <div class="slds-card__body slds-card__body_inner">
+                    <lightning:recordForm recordId="{!v.recordId}"
+                                          objectApiName="Task_Monitor__c"
+                                          fields="{!v.fields}"
+                                          mode="readonly"/>
+                </div>
+            </article>
+        </div>
+        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center" >
+            <lightning:icon iconName="standard:unmatched" onclick="{!c.removePoints}" size="small" alternativeText="Indicates approval"/>
+        </div>
+    </div>
+    <label aura:id="messageResult" class="slds-hide">{!v._label}</label>
+</aura:component>

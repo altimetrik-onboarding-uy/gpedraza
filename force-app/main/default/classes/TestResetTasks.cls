@@ -6,42 +6,37 @@ private class TestResetTasks {
     public static String CRON_EXP = '0 59 23 * * ? *';
     static testmethod void testScheduledJob() {
         // Create some out of date Opportunity records
-        Contact cont = new Contact(LastName='Last Name Test');
-        system.debug('Contact going to insert ' + cont);
+        Contact cont = new Contact(LastName ='Last Name Test');
         List<Task_Monitor__c> tasks = new List<Task_Monitor__c>();
         insert cont;
-        system.debug('Contact inserted ' + cont);
-        Task_Monitor__c task = new Task_Monitor__c(Name='Task',
-                                                   Contact__c=cont.Id,
-                                                   Difficulty__c='Hard',
-                                                   Type__c='Daily',
-                                                   State__c='Completed');
-        Task_Monitor__c task1 = new Task_Monitor__c(Name='Task1',
-                                                   Contact__c=cont.Id,
-                                                   Difficulty__c='Hard',
-                                                   Type__c='Daily',
-                                                   State__c='In Progress');
+        Task_Monitor__c task = new Task_Monitor__c(Name ='Task',
+                                                   Contact__c =cont.Id,
+                                                   Difficulty__c ='Hard',
+                                                   Type__c ='Daily',
+                                                   State__c ='Completed');
+        Task_Monitor__c task1 = new Task_Monitor__c(Name ='Task1',
+                                                   Contact__c = cont.Id,
+                                                   Difficulty__c ='Hard',
+                                                   Type__c ='Daily',
+                                                   State__c ='In Progress');
         
-        Task_Monitor__c task2 = new Task_Monitor__c(Name='Task2',
-                                                   Contact__c=cont.Id,
-                                                   Type__c='Habit',
-                                                   State__c='Completed',
-                                                   Habit_Complete__c=true);
+        Task_Monitor__c task2 = new Task_Monitor__c(Name ='Task2',
+                                                   Contact__c = cont.Id,
+                                                   Type__c = 'Habit',
+                                                   State__c = 'Completed',
+                                                   Habit_Complete__c = true);
         
-         Task_Monitor__c task3 = new Task_Monitor__c(Name='Task3',
-                                                   Contact__c=cont.Id,
-                                                   Type__c='Habit',
-                                                    State__c='Completed',
-                                                   Habit_Complete__c=false);
+         Task_Monitor__c task3 = new Task_Monitor__c(Name = 'Task3',
+                                                   Contact__c = cont.Id,
+                                                   Type__c = 'Habit',
+                                                    State__c = 'Completed',
+                                                   Habit_Complete__c = false);
         
         tasks.add(task);
         tasks.add(task1);
         tasks.add(task2);
         tasks.add(task3);
-       
-            insert tasks;
-
-        
+        insert tasks;
 
         // Get the IDs of the opportunities we just inserted
         Map<Id, Task_Monitor__c> tasksMap = new Map<Id, Task_Monitor__c>(tasks);
@@ -51,9 +46,7 @@ private class TestResetTasks {
         String jobId = System.schedule('ScheduledApexTest',
                                        CRON_EXP, 
                                        new ResetDailyHabitTasks());         
-        
         Test.stopTest();
-        
         // Now that the scheduled job has executed,
         // check that our tasks were created
         List<Task_Monitor__c> lt = [SELECT Id,State__c 

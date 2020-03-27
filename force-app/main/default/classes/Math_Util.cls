@@ -1,6 +1,6 @@
 public class Math_Util {
     public static integer Fibonacci_Serie(decimal val){
-        if(val ==0 )
+        if(val == 0 )
             return 0;
         else if (val == 1)
             return 1;
@@ -13,7 +13,7 @@ public class Math_Util {
     {
         if(run)
         {
-            run=false;
+            run = false;
             return true;
         }
         else

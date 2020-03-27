@@ -20,5 +20,25 @@
     <members>*</members>
     <name>ApexTrigger</name>
   </types>
+  <types>
+        <members>DashBoard</members>
+        <members>Group_Of_DAILY</members> 
+        <members>Group_of_HABIT</members>
+        <members>Group_Of_TODO</members> 
+        <members>HABIT_TASK</members>
+        <members>hideTaskEvent</members> 
+        <members>Task_DashBoard</members>
+        <members>TODO_TASK</members> 
+        <name>AuraDefinitionBundle</name>
+  </types>
+  <types>
+    <members>Habitica</members>
+    <members>standard-Report</members>
+    <name>CustomTab</name>
+  </types>
+  <types>
+      <members>trlhdtips__Playground_Starter</members>
+      <name>CustomApplication</name>
+  </types>
     <version>48.0</version>
 </Package>

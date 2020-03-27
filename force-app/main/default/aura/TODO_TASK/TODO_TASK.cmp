@@ -1,0 +1,31 @@
+<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute  name="recordId" type="String" default=""  />
+	<aura:attribute name="fields" type="String[]" default="['Name','Difficulty__c']" />
+    <aura:registerEvent name="hideTask" type="c:hideTaskEvent"/>
+    <article class="slds-card">
+  		<div class="slds-card__body slds-card__body_inner">
+             <lightning:recordForm recordId="{!v.recordId}"
+                              objectApiName="Task_Monitor__c"
+                              fields="{!v.fields}"
+                                   column="2"
+                              mode="readonly"/>
+             <lightning:recordEditForm  aura:id="edit"
+                recordId="{!v.recordId}"
+                onload="{!c.handleLoad}"
+                objectApiName="Task_Monitor__c">
+                    <lightning:messages />
+                    <lightning:inputField aura:id="someId2" class="slds-hide" fieldName="Type__c" />
+                    <lightning:inputField aura:id="state" onchange="{!c.saveRecord}"  fieldName="State__c" />
+             </lightning:recordEditForm>
+        </div>
+	</article>
+   <!--  Not working stay por studing pourporse <aura:if isTrue="{! not( empty( v.recordId ) ) }"> 
+        <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Task_Monitor__c">
+            <div class="slds-box">
+                <aura:iteration items="{!v.fields}" var="field" >
+                    <lightning:outputField fieldName="{!field}" />
+                </aura:iteration> 
+            </div>
+        </lightning:recordViewForm> 
+    </aura:if>-->
+</aura:component>

@@ -155,7 +155,7 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Task Monitor</label>
     <nameField>
-        <label>Task Monitor Name</label>
+        <label>Task Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Tasks Monitor</pluralLabel>

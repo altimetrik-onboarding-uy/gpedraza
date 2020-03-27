@@ -1,0 +1,20 @@
+<aura:component controller="DashBoardController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:attribute name="recordsTODO" type="Task_Monitor__c[]" default="[]"/> 
+    <aura:attribute name="recordsDAILY" type="Task_Monitor__c[]" default="[]"/> 
+    <aura:attribute name="recordsHABIT" type="Task_Monitor__c[]" default="[]"/> 
+    <aura:handler name="hideTask" event="c:hideTaskEvent" action="{!c.handlingTaskEvent}"/>
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+
+    <div class="slds-grid slds-gutters">
+      <div class="slds-col">
+          <c:Group_Of_TODO recordsTODO="{!v.recordsTODO}" />
+      </div>
+      <div class="slds-col">
+        <c:Group_Of_DAILY recordsDAILY="{!v.recordsDAILY}"/>
+      </div>
+      <div class="slds-col">
+        <c:Group_of_HABIT recordsHABIT="{!v.recordsHABIT}"/>
+      </div>
+	</div>
+</aura:component>

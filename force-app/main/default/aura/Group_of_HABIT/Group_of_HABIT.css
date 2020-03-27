@@ -1,0 +1,6 @@
+.THIS.slds-card {
+    background-color:#edecee !important;
+}
+.THIS .slds-card__body{
+     max-height: 30em;
+}

@@ -9,18 +9,14 @@ global class ResetDailyHabitTasks implements Schedulable {
                             	(Select 
                                  State__c, Type__c, Habit_Complete__c,
                                  Difficulty_val__c, Points_Awarded__c
-                                 from Tasks_Monitor__r where  Type__c<>'TO-DO') 
-                            FROM Contact where Id  IN (SELECT Contact__c FROM Task_Monitor__c 
-                             where  Type__c<>'TO-DO')])
+                                 from Tasks_Monitor__r where  Type__c <>'TO-DO') 
+                               FROM Contact where Id  IN (SELECT Contact__c FROM Task_Monitor__c 
+                               where  Type__c <>'TO-DO')])
             {
-                 System.debug('Congtacto...................... ' + cont);
-                 System.debug('Found task');
                 //Calcule the points and update the 
-                for(integer i=0; i<cont.Tasks_Monitor__r.size(); i++){
-                   
-                    Task_Monitor__c task= cont.Tasks_Monitor__r[i];
-                    System.debug(task);
-                    if(task.Type__c=='Daily'){
+                for(integer i = 0; i < cont.Tasks_Monitor__r.size(); i++){
+                    Task_Monitor__c task = cont.Tasks_Monitor__r[i];
+                    if(task.Type__c == 'Daily'){
                         if(task.State__c=='Completed'){
                             cont.Points_Ammount__c += task.Points_Awarded__c;
                         }
@@ -31,28 +27,21 @@ global class ResetDailyHabitTasks implements Schedulable {
                     }
                     else{ //Habit
                         if(task.Habit_Complete__c)
-                            cont.Points_Ammount__c+= task.Points_Awarded__c;
+                            cont.Points_Ammount__c += task.Points_Awarded__c;
                         else
-                            cont.Points_Ammount__c-= task.Points_Awarded__c;                        
+                            cont.Points_Ammount__c -= task.Points_Awarded__c;                        
                     }
                    
                     //always reset the state
                     if(task.State__c <> 'New')
-                    //cont.Tasks_Monitor__r[i].State__c = 'New';
-                    task.State__c = 'New';
-                    update cont;
+                    	task.State__c = 'New';
+                    
                     toUpdateTasks.add(task);
-                    //update cont.Tasks_Monitor__r[i];
                 }
                  conts.add(cont);
             }
             update toUpdateTasks;
-            update conts; 
-             System.debug('Congtacto...................... ' + conts[0]);
-            
-           
-          
-            
+            update conts;   
         }
         catch(System.Exception ex){
             System.debug(ex.getMessage());

@@ -1,0 +1,7 @@
+.THIS .slds-border_bottom{
+    border: none !important;
+}
+
+.THIS.slds-card{
+    padding-bottom: 1px;
+}

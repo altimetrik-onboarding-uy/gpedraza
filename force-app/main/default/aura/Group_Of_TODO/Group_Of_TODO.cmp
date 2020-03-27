@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="recordsTODO" type="Task_Monitor__c[]" default="[]"/> 
+	<article class="slds-card">
+        <div class="slds-card__header slds-grid">
+              <label>TO-DO tasks</label>
+        </div>
+        <div class="slds-card__body slds-card__body_inner slds-scrollable_y">
+           <aura:iteration items="{!v.recordsTODO}" var="task" >
+                <div  id="{!task.Id}" class="temporal">
+                     <c:TODO_TASK  recordId="{!task.Id}"  /> 
+                </div> 
+    		</aura:iteration> 
+        </div>
+    </article>
+</aura:component>
